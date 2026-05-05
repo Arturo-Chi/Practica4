@@ -1,1 +1,4 @@
 /test
+**.xlsx
+**.csv
+**/__pycache__/
