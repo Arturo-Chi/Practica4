@@ -73,8 +73,8 @@ class Testing:
         prediction = self.model.predict(flower_data_scaled)
 
         return {
-            "class_number": int(prediction[0]),
-            "class_name": self.dataset.target_names[prediction[0]]
+            "prediction_index": int(prediction[0]),
+            "prediction_flower": self.dataset.target_names[prediction[0]]
         }
 
     

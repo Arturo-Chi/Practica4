@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from router import router
 from fastapi import APIRouter
 from implementation import Testing
-from core.requests.FlowerInput import FlowerInput
+from models.FlowerInput import FlowerInput
 
 
 approuter = APIRouter(prefix="/predict", tags=["predict"])
@@ -18,11 +18,17 @@ app = FastAPI(
     title="Practica4 - Web"
 )
 
+@approuter.get("/")
+def getMain():
+    return {
+        "Message": "Api Funcionando"
+    }
+
 
 @approuter.post("/")
 def predictionAPI(data: FlowerInput):
     result = testing.predict_flower(
-        data.sepal_lenght,
+        data.sepal_length,
         data.sepal_width,
         data.petal_length,
         data.petal_width
